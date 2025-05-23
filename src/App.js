@@ -11,6 +11,9 @@ import DemoBlog from "./components/demo-blog";
 import Header from "./components/header";
 import Contact from "./components/contact";
 import Create from "./components/create";
+import BlogPost from "./components/BlogPost";
+
+
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 import {
@@ -161,53 +164,65 @@ class App extends Component {
       <div>
         {this.state.isLoggedIn ? (
           <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route
-                path="/about"
-                element={
-                  <>
-                    {" "}
-                    <Header
-                      backgroundImage="https://i.pinimg.com/originals/c7/e7/1b/c7e71bc6610ee119f7c2b05cc775c483.jpg"
-                      title="Let's Tell Everyone Your Story"
-                    />{" "}
-                    <About />
-                  </>
-                }
-              />
-              <Route
-                path="/demo-blog"
-                element={
-                  <>
-                    {" "}
-                    <Header
-                      backgroundImage="https://www.iimtindia.net/Blog/wp-content/uploads/2021/05/Blogging-1024x576.jpg"
-                      title=""
-                    />{" "}
-                    <DemoBlog />
-                  </>
-                }
-              />
-              <Route path="/create" element=<Create /> />
-              <Route path="/contact" element=<Contact /> />
+  <Navbar />
+  <Routes>
+    <Route
+      path="/about"
+      element={
+        <>
+          <Header
+            backgroundImage="https://i.pinimg.com/originals/c7/e7/1b/c7e71bc6610ee119f7c2b05cc775c483.jpg"
+            title="Let's Tell Everyone Your Story"
+          />
+          <About />
+        </>
+      }
+    />
+    <Route
+      path="/demo-blog"
+      element={
+        <>
+          <Header
+            backgroundImage="https://www.iimtindia.net/Blog/wp-content/uploads/2021/05/Blogging-1024x576.jpg"
+            title=""
+          />
+          <DemoBlog />
+        </>
+      }
+    />
+    <Route path="/create" element={<Create />} />
+    <Route path="/contact" element={<Contact />} />
+    
+    {/* ✅ New Route for Individual Blog Post */}
+    <Route
+      path="/post/:id"
+      element={
+        <>
+          <Header
+            backgroundImage="https://images.unsplash.com/photo-1557800636-894a64c1696f"
+            title="Blog Post"
+          />
+          <BlogPost posts={this.state.posts} />
+        </>
+      }
+    />
 
-              <Route
-                path="/"
-                element={
-                  <>
-                    {" "}
-                    <Header
-                      backgroundImage="https://images.unsplash.com/photo-1432821579285-1b649e5b1ce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NnwxOTY2NDU0fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
-                      title="Welcome To Devang's Blog"
-                    />{" "}
-                    <Home posts={this.state.posts}></Home>
-                  </>
-                }
-              />
-            </Routes>
-            <Footer></Footer>
-          </BrowserRouter>
+    <Route
+      path="/"
+      element={
+        <>
+          <Header
+            backgroundImage="https://images.unsplash.com/photo-1432821579285-1b649e5b1ce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NnwxOTY2NDU0fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+            title="Welcome To Devang's Blog"
+          />
+          <Home posts={this.state.posts} />
+        </>
+      }
+    />
+  </Routes>
+  <Footer />
+</BrowserRouter>
+
         ) : this.state.page ? (
           <Register
             google={this.googleSignupHandler}
