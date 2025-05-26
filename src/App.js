@@ -171,7 +171,7 @@ class App extends Component {
       element={
         <>
           <Header
-            backgroundImage="https://i.pinimg.com/originals/c7/e7/1b/c7e71bc6610ee119f7c2b05cc775c483.jpg"
+            backgroundImage="https://cogenttalks.com/wp-content/uploads/2023/01/target-board-with-arrow-red-background-copy-space-challenge-setup-business-achievement-goal-objective-target-concept-by-3d-render-scaled-1.jpg"
             title="Let's Tell Everyone Your Story"
           />
           <About />
@@ -212,7 +212,7 @@ class App extends Component {
       element={
         <>
           <Header
-            backgroundImage="https://images.unsplash.com/photo-1432821579285-1b649e5b1ce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NnwxOTY2NDU0fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+            backgroundImage="https://cdn.pixabay.com/photo/2020/05/04/10/21/background-5128586_960_720.jpg"
             title="Welcome To Devang's Blog"
           />
           <Home posts={this.state.posts} />
